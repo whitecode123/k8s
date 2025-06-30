@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: was
+  labels:
+    app: was
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: was
+  template:
+    metadata:
+      labels:
+        app: was
+    spec:
+      serviceAccountName: petclinic-ksa
+      containers:
+      - name: was-container
+        image: gcr.io/kdt1-finalproject/njs-was:was
+        ports:
+        - name: http
+          containerPort: 8080
+      
+      - name: cloud-sql-proxy 
+        image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.17.1
+        args:
+        - "--structured-logs"
+        - "--port=3306"
+        - "--private-ip" 
+        - "kdt1-finalproject:asia-northeast3:njs-db"

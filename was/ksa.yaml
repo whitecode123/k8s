@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: petclinic-ksa
+  namespace: default
+  annotations:
+    iam.gke.io/gcp-service-account: petclinic-gsa@kdt1-finalproject.iam.gserviceaccount.com
