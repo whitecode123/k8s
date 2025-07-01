@@ -1,20 +1,18 @@
 steps:
-  - name: 'gcr.io/cloud-builders/git'
-  args: ['fetch', 'origin', 'main']
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args:
-      [
-        'container', 'clusters', 'get-credentials',
-        'njs-cluster',
-        '--region', 'asia-northeast3',
-        '--project', 'kdt1-finalproject'
-      ]
-
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [  
+      'build', '-t', 'gcr.io/kdt1-finalproject/njs-web:web-$COMMIT_SHA', '.'
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push', 'gcr.io/kdt1-finalproject/njs-web:web-$COMMIT_SHA'
+    ]
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', '.']
     env:
-      - 'CLOUDSDK_COMPUTE_REGION=asia-northeast3'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=njs-cluster'
+      - 'CLOUDSDK_COMPUTE_REGION=asia-northeast3'     
+      - 'CLOUDSDK_CONTAINER_CLUSTER=njs-cluster'    
+
 options:
   logging: CLOUD_LOGGING_ONLY
 timeout: 600s
