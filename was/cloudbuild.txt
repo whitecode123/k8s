@@ -11,7 +11,7 @@ steps:
       'push', 'gcr.io/kdt1-finalproject/njs-was:was-$COMMIT_SHA'
     ]
 
-- name: 'gcr.io/cloud-builders/mvn'
+  - name: 'gcr.io/cloud-builders/mvn'
     dir: 'was/petclinic_btc'
     args: [ 'clean', 'package', '-DskipTests', '-PMySQL' ]
 
