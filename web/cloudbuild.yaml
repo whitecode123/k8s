@@ -1,7 +1,10 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: [  
-      'build', '-t', 'gcr.io/kdt1-finalproject/njs-web:web-$COMMIT_SHA', '.'
+      'build', 
+      '-t', 'gcr.io/kdt1-finalproject/njs-web:web-$COMMIT_SHA',
+      '-f', 'web/Dockerfile',
+      '.'
     ]
   - name: 'gcr.io/cloud-builders/docker'
     args: [
