@@ -1,7 +1,7 @@
 steps:
   - name: 'gcr.io/cloud-builders/mvn'
     dir: 'was/petclinic_btc'
-    args: [ 'clean', 'package', '-Dmaven.test.skip=true', '-Dwro4j.skip=true', '-PMySQL' ]
+    args: [ 'clean', 'package', '-Dmaven.main.skip=true', '-DskipTests', '-Dwro4j.skip=true', '-PMySQL' ]
 
   - name: 'gcr.io/cloud-builders/docker'
     args: [  
