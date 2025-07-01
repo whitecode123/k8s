@@ -1,4 +1,8 @@
 steps:
+  - name: 'gcr.io/cloud-builders/mvn'
+    dir: 'was/petclinic_btc'
+    args: [ 'clean', 'package', '-DskipTests', '-PMySQL' ]
+
   - name: 'gcr.io/cloud-builders/docker'
     args: [  
       'build',
@@ -6,16 +10,12 @@ steps:
       '-f', 'was/Dockerfile',
       'was'
     ]
+
   - name: 'gcr.io/cloud-builders/docker'
     args: [
       'push', 'gcr.io/kdt1-finalproject/njs-was:was-$COMMIT_SHA'
     ]
 
-  - name: 'gcr.io/cloud-builders/mvn'
-    dir: 'was/petclinic_btc'
-    args: [ 'clean', 'package', '-DskipTests', '-PMySQL' ]
-    env:
-      - 'JAVA_HOME=/usr/local/openjdk-11'
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'was']
     env:
