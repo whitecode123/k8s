@@ -4,7 +4,7 @@ steps:
       'build', 
       '-t', 'gcr.io/kdt1-finalproject/njs-web:web-$COMMIT_SHA',
       '-f', 'web/Dockerfile',
-      '.'
+      'web'
     ]
   - name: 'gcr.io/cloud-builders/docker'
     args: [
