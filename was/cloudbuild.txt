@@ -1,0 +1,25 @@
+steps:
+  - name: 'gcr.io/cloud-builders/mvn'
+    dir: 'was/petclinic_btc'
+    args: [ 'clean', 'package', '-DskipTests', '-PMySQL' ]
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [  
+      'build',
+      '-t', 'gcr.io/kdt1-finalproject/njs-was:was-$COMMIT_SHA',
+      '-f', 'was/Dockerfile',
+      'was'
+    ]
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [
+      'push', 'gcr.io/kdt1-finalproject/njs-was:was-$COMMIT_SHA'
+    ]
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args: ['apply', '-f', 'was']
+    env:
+      - 'CLOUDSDK_COMPUTE_REGION=asia-northeast3'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=njs-cluster'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+timeout: 600s
