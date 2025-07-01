@@ -1,5 +1,6 @@
 steps:
-  - name: 'gcr.io/cloud-builders/mvn'
+  - name: 'maven:3.8.3-openjdk-11'
+    entrypoint: 'mvn'
     dir: 'was/petclinic_btc'
     args: [ 'clean', 'package', '-Dmaven.main.skip=true', '-Dmaven.test.skip=true', '-Dwro4j.skip=true', '-Dskip.wro4j=true', '-PMySQL' ]
 
