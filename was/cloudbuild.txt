@@ -15,7 +15,7 @@ steps:
     dir: 'was/petclinic_btc'
     args: [ 'clean', 'package', '-DskipTests', '-PMySQL' ]
     env:
-      - 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64'
+      - 'JAVA_HOME=/usr/local/openjdk-11'
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'was']
     env:
