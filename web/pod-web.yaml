@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: web-container  
-        image: gcr.io/kdt1-finalproject/njs-web:web-e989c010cab5c0bf9258385f80b79c21b0b99ba0
+        image: gcr.io/kdt1-finalproject/njs-web:web-704ad0aace2037a6a86ce8b66459448d2ca85f91
         ports:
         - containerPort: 80
