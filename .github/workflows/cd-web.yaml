@@ -1,6 +1,9 @@
 on:
   push:
+    paths:
+      - 'web/**'
     branches: ["main"]
+
 
 jobs:
   deploy:
@@ -19,7 +22,7 @@ jobs:
         with:
           project_id: kdt1-finalproject
           cluster_name: njs-cluster
-          location: asia-northeast3   # 리전 또는 존
+          location: asia-northeast3 
       # k8s 레포 checkout
       - name: Checkout k8s repo
         uses: actions/checkout@v4
