@@ -1,0 +1,25 @@
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # GCP 인증
+      - name: Set up Cloud SDK
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.KDT1FINAL }}
+      
+      - name: Set up GKE credentials
+        uses: google-github-actions/get-gke-credentials@v2
+        with:
+          project_id: kdt1-finalproject
+          cluster_name: njs-cluster
+          location: asia-northeast3   # 리전 또는 존
+
+      - name: Deploy to GKE
+        run: kubectl apply -f k8s/web      
