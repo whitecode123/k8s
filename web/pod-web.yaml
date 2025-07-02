@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: web-container  
-        image: gcr.io/kdt1-finalproject/njs-web:web 
+        image: gcr.io/kdt1-finalproject/njs-web:web-${COMMIT_SHA}
         ports:
         - containerPort: 80
