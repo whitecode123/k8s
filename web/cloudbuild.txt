@@ -16,6 +16,7 @@ steps:
       - '-c'
       - |
         sed -i "s|image: gcr.io/kdt1-finalproject/njs-web:.*|image: gcr.io/kdt1-finalproject/njs-web:web-${COMMIT_SHA}|" web/pod-web.yaml
+
   - name: 'gcr.io/cloud-builders/kubectl'
     args: ['apply', '-f', 'web']
     env:
