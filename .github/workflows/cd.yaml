@@ -20,6 +20,13 @@ jobs:
           project_id: kdt1-finalproject
           cluster_name: njs-cluster
           location: asia-northeast3   # 리전 또는 존
+      # k8s 레포 checkout
+      - name: Checkout k8s repo
+        uses: actions/checkout@v4
+        with:
+          repository: whitecode123/k8s
+          token: ${{ secrets.LEARNK8SCICD }}
+          path: k8s 
 
       - name: Deploy to GKE
         run: kubectl apply -f k8s/web      
