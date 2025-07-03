@@ -4,9 +4,11 @@ metadata:
   name: web-ingress
   annotations:
     kubernetes.io/ingress.class: gce
+    networking.gke.io/managed-certificates: njs-certificate
 spec:
   rules:
-  - http:
+  - host: "www.dorang.store"  
+    http:
       paths:
       - path: /
         pathType: Prefix
