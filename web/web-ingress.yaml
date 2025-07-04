@@ -7,16 +7,6 @@ metadata:
     networking.gke.io/managed-certificates: njs-certificate
 spec:
   rules:
-  - host: "www.dorang.store"  
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: web
-            port:
-              number: 80
   - http:
       paths:
       - path: /
