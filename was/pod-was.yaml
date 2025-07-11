@@ -17,7 +17,7 @@ spec:
       serviceAccountName: petclinic-ksa
       containers:
       - name: was-container
-        image: gcr.io/kdt1-finalproject/njs-was:was-bfca4a281687b41cfdf7c8bc9f8c8ec28a557c26
+        image: gcr.io/kdt1-finalproject/njs-was:was-edd34de06c9a0180e47179f872b2f2f817920cde
         ports:
         - name: http
           containerPort: 8080
