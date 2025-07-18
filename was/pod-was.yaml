@@ -18,6 +18,11 @@ spec:
       containers:
       - name: was-container
         image: gcr.io/kdt1-finalproject/njs-was:was-21b2d34631882367a151bd4df200671749c055be
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "500m"
         ports:
         - name: http
           containerPort: 8080
