@@ -19,7 +19,7 @@ spec:
         image: gcr.io/kdt1-finalproject/njs-web:web-4b790fc74f798ade8ef4cb2b6f3319277c177bbb
         resources:
           requests:
-            cpu: "20m"
+            cpu: "100m"
           limits:
             cpu: "200m"
         ports:
