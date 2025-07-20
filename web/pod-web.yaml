@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: web-container  
-        image: gcr.io/kdt1-finalproject/njs-web:web-82e1e789c1285377010031679096dc9215eab243
+        image: gcr.io/kdt1-finalproject/njs-web:web-4b790fc74f798ade8ef4cb2b6f3319277c177bbb
         resources:
           requests:
             cpu: "20m"
