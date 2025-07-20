@@ -28,7 +28,7 @@ spec:
         - name: apache-config
           mountPath: /etc/apache2/sites-available/000-default.conf
           subPath: 000-default.conf
-    volumes:
-    - name: apache-config
-      configMap:
-        name: apache-proxy-config
+      volumes:
+      - name: apache-config
+        configMap:
+          name: apache-proxy-config
