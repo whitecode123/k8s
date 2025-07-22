@@ -20,9 +20,9 @@ spec:
         image: gcr.io/kdt1-finalproject/njs-was:was-930dd2bfab2e65537f8099a64afb766cfe54d6ac
         resources:
           requests:
-            cpu: "300m"
+            cpu: "100m"
           limits:
-            cpu: "600m"
+            cpu: "200m"
         ports:
         - name: http
           containerPort: 8080
@@ -31,9 +31,9 @@ spec:
         image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.17.1
         resources:
           requests:
-            cpu: "300m"
+            cpu: "100m"
           limits:
-            cpu: "600m"
+            cpu: "200m"
         args:
         - "--structured-logs"
         - "--port=3306"

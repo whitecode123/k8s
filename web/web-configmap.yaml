@@ -10,3 +10,5 @@ data:
         ProxyPass / http://was:8080/
         ProxyPassReverse / http://was:8080/
     </VirtualHost>
+
+
