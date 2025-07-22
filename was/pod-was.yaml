@@ -17,7 +17,7 @@ spec:
       serviceAccountName: petclinic-ksa
       containers:
       - name: was-container
-        image: gcr.io/kdt1-finalproject/njs-was:was-a50170dd8a1b2662aa9f77b8864a99e3e5e6abcd
+        image: gcr.io/kdt1-finalproject/njs-was:was-0fd72460b9801ed898d6c6134e2a1990b157dd0d
         resources:
           requests:
             cpu: "300m"
